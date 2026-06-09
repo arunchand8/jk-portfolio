@@ -20,14 +20,14 @@ const projects = [
   },
   {
     type: "screenshot",
-    imgSrc: {img1},
+    imgSrc: img1,
     tag: "Environment Design",
     title: "Neon District — Environment",
     desc: "Atmospheric environment build. Volumetric lighting and mood composition.",
   },
   {
     type: "screenshot",
-    imgSrc: {img2},
+    imgSrc: img2,
     tag: "Pre-Visualization",
     title: "Crimson Siege — Pre-Vis",
     desc: "Full pre-visualization pass for cinematic sequences before final production.",

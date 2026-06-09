@@ -1,4 +1,5 @@
 import React from "react";
+import jkImg from '../assets/jaya_img2.png'
 
 export default function About() {
   return (
@@ -8,7 +9,7 @@ export default function About() {
           <img
             className="object-cover object-center rounded-full w-100 h-100"
             alt="jayakrishna"
-            src="/src/assets/jaya_img2.png"
+            src={jkImg}
           />
         </div>
         <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
@@ -16,7 +17,7 @@ export default function About() {
             About Me
           </h1>
           <p className="font-dm mb-8 leading-relaxed text-white/60">
-            I’m Jayakrishna an Unreal Engine Cinematic Artist with 3+ years of
+            Iu+2019m Jayakrishna an Unreal Engine Cinematic Artist with 3+ years of
             experience creating high-impact game trailers and cinematics. I
             specialize in scene composition, camera direction, and visual
             storytelling.

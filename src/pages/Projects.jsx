@@ -1,5 +1,7 @@
 import SectionHeader from "../components/SectionHeader";
 import ProjectCard from "../components/ProjectCard";
+import img1 from '../assets/img1.jpg'
+import img2 from '../assets/img2.jpg'
 
 const projects = [
   {
@@ -18,14 +20,14 @@ const projects = [
   },
   {
     type: "screenshot",
-    imgSrc: "/src/assets/img1.jpg",
+    imgSrc: {img1},
     tag: "Environment Design",
     title: "Neon District — Environment",
     desc: "Atmospheric environment build. Volumetric lighting and mood composition.",
   },
   {
     type: "screenshot",
-    imgSrc: "/src/assets/img2.jpg",
+    imgSrc: {img2},
     tag: "Pre-Visualization",
     title: "Crimson Siege — Pre-Vis",
     desc: "Full pre-visualization pass for cinematic sequences before final production.",

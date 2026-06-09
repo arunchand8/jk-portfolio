@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { NavLink } from "react-router-dom";
+import jkLogo from '../assets/jk_logo.png'
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -13,16 +14,14 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-dark border-b border-white/30 backdrop-blur-sm">
       <nav className="max-w-6xl mx-auto flex justify-between items-center px-6 md:px-10">
-
         {/* Logo */}
         <NavLink to="/" className="flex items-center">
           <img
-            src="/src/assets/jk_logo.png"
+            src={jkLogo}
             alt="Jayakrishna Logo"
             className="h-16 md:h-20 w-auto"
           />
         </NavLink>
-
         {/* Desktop Nav Links */}
         <ul className="hidden md:flex gap-8 list-none">
           {navLinks.map(({ label, to }) => (
@@ -40,7 +39,6 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-
         {/* Right side */}
         <div className="flex items-center gap-4">
           <a
@@ -49,7 +47,6 @@ export default function Navbar() {
           >
             Contact
           </a>
-
           {/* Hamburger — mobile only */}
           <button
             className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5 focus:outline-none"
@@ -61,9 +58,7 @@ export default function Navbar() {
             <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`} />
           </button>
         </div>
-
       </nav>
-
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden border-t border-white/10 bg-dark">
@@ -95,7 +90,6 @@ export default function Navbar() {
           </ul>
         </div>
       )}
-
     </header>
   )
 }

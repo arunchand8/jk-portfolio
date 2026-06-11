@@ -1,30 +1,29 @@
-import { FaEnvelope, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa'
+import { FaEnvelope, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 const socials = [
   {
     icon: FaYoutube,
-    href: 'https://www.youtube.com/@im_jayakrishna',
-    label: 'YouTube',
-    color: '#FF0000',
+    href: "https://www.youtube.com/@im_jayakrishna",
+    label: "YouTube",
+    color: "#FF0000",
   },
   {
     icon: FaInstagram,
-    href: 'https://www.instagram.com/im_jayakrishna/',
-    label: 'Instagram',
-    color: '#E4405F',
+    href: "https://www.instagram.com/im_jayakrishna/",
+    label: "Instagram",
+    color: "#E4405F",
   },
   {
     icon: FaLinkedin,
-    href: 'https://www.linkedin.com/in/imjayakrishna',
-    label: 'LinkedIn',
-    color: '#0A66C2',
+    href: "https://www.linkedin.com/in/imjayakrishna",
+    label: "LinkedIn",
+    color: "#0A66C2",
   },
-]
+];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/30 mt-16">
-      {/* CTA Section */}
+    <footer className="border-t border-white/10 mt-16">
       <section className="max-w-6xl mx-auto px-6 md:px-10 py-20 text-center">
         <p className="text-xs uppercase tracking-[0.2em] text-gold mb-3">
           Get In Touch
@@ -38,16 +37,16 @@ export default function Footer() {
         </p>
         <a
           href="mailto:kovelakuntla333@gmail.com"
-          className="inline-flex items-center gap-3 bg-gold text-dark px-8 py-4 rounded-full font-semibold text-sm tracking-wide no-underline hover:opacity-90 transition-opacity"
+          className="inline-flex items-center gap-3 bg-gold text-dark px-8 py-4 rounded-md font-semibold text-sm tracking-wide no-underline hover:opacity-90 transition-opacity"
         >
           <FaEnvelope size={16} />
           Send a Message
         </a>
       </section>
-      {/* Footer Bottom */}
+
       <div className="max-w-6xl mx-auto px-6 md:px-10 py-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-        <p className="text-xs text-white/500 font-dm">
-          © Jayakrishna · Unreal Engine · Cinematic Artist
+        <p className="text-xs text-white/50 font-dm text-center md:text-left">
+          Jayakrishna | Unreal Engine | Cinematic Artist
         </p>
         <nav aria-label="Social links">
           <ul className="flex items-center gap-4 list-none">
@@ -73,5 +72,5 @@ export default function Footer() {
         </nav>
       </div>
     </footer>
-  )
+  );
 }

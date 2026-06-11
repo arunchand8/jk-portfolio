@@ -7,9 +7,9 @@ export default function ProjectCard({
   desc,
 }) {
   return (
-    <article className="bg-card border border-white/[0.08] rounded-xl overflow-hidden hover:border-gold/40 transition-colors duration-300">
+    <article className="h-full bg-card border border-white/[0.08] rounded-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2.5 hover:border-gold/40">
       {type === "video" ? (
-        <div className="relative pb-[56.25%] h-0 overflow-hidden">
+        <div className="relative pb-[56.25%] h-0 overflow-hidden flex-shrink-0">
           <iframe
             src={embedUrl}
             className="absolute top-0 left-0 w-full h-full border-none"
@@ -18,7 +18,7 @@ export default function ProjectCard({
           />
         </div>
       ) : imgSrc ? (
-        <figure className="h-48 overflow-hidden">
+        <figure className="h-48 overflow-hidden flex-shrink-0">
           <img
             src={imgSrc}
             alt={title}
@@ -26,7 +26,7 @@ export default function ProjectCard({
           />
         </figure>
       ) : (
-        <div className="h-48 bg-card flex flex-col items-center justify-center gap-2 border-b border-white/[0.06]">
+        <div className="h-48 bg-card flex flex-col items-center justify-center gap-2 border-b border-white/[0.06] flex-shrink-0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -46,7 +46,7 @@ export default function ProjectCard({
           </span>
         </div>
       )}
-      <div className="p-5">
+      <div className="p-5 flex flex-col flex-1">
         <p className="text-[0.65rem] uppercase tracking-[0.12em] text-gold mb-1">
           {tag}
         </p>

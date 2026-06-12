@@ -7,7 +7,7 @@ export default function ProjectCard({
   desc,
 }) {
   return (
-    <article className="h-full bg-card border border-white/[0.08] rounded-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2.5 hover:border-gold/40">
+    <article className="h-full bg-card border border-white/[0.08] rounded-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2.5 hover:border-rose/40">
       {type === "video" ? (
         <div className="relative pb-[56.25%] h-0 overflow-hidden flex-shrink-0">
           <iframe
@@ -33,7 +33,7 @@ export default function ProjectCard({
             height="32"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="rgba(232,196,74,0.4)"
+            stroke="rgba(198,172,143,0.4)"
             strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -47,7 +47,7 @@ export default function ProjectCard({
         </div>
       )}
       <div className="p-5 flex flex-col flex-1">
-        <p className="text-[0.65rem] uppercase tracking-[0.12em] text-gold mb-1">
+        <p className="text-[0.65rem] uppercase tracking-[0.12em] text-rose mb-1">
           {tag}
         </p>
         <h3 className="font-bebas text-xl text-white tracking-wide mb-1">

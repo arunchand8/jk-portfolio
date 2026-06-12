@@ -1,8 +1,7 @@
-export default function SectionHeader({ label, title }) {
+export default function SectionHeader({ title }) {
   return (
-    <div className="mb-10">
-      <p className="text-[0.65rem] uppercase tracking-[0.2em] text-gold mb-2">{label}</p>
-      <h2 className="font-bebas text-5xl text-white tracking-wide">{title}</h2>
+    <div className="mb-6 md:mb-8 font-nexa-trail-thin">
+      <h2 className="font-nexa-bold text-4xl text-rose tracking-wide">{title}</h2>
     </div>
   )
 }

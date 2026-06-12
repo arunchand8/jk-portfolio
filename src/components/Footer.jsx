@@ -23,21 +23,18 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 mt-16">
+    <footer className="border-t border-white/10 mt-6">
       <section className="max-w-6xl mx-auto px-6 md:px-10 py-20 text-center">
-        <p className="text-xs uppercase tracking-[0.2em] text-gold mb-3">
-          Get In Touch
-        </p>
-        <h2 className="font-bebas text-5xl text-white tracking-wide mb-4">
-          Let's Create Together
+        <h2 className="font-nexa-bold text-4xl text-rose tracking-wide mb-4">
+          Let’s Create Together
         </h2>
-        <p className="text-sm text-white/60 font-dm mb-8">
+        <p className="text-sm text-rose font-nexa-light mb-8">
           Available for game trailer projects, cinematic sequences, and
           collaborations.
         </p>
         <a
           href="mailto:kovelakuntla333@gmail.com"
-          className="inline-flex items-center gap-3 bg-gold text-dark px-8 py-4 rounded-md font-semibold text-sm tracking-wide no-underline hover:opacity-90 transition-opacity"
+          className="font-nexa-light inline-flex items-center gap-3 border text-rose px-8 py-4 rounded-md text-xs tracking-wide no-underline hover:bg-rose hover:opacity-90 hover:text-white hover:border-transparent transition-all duration-200"
         >
           <FaEnvelope size={16} />
           Send a Message

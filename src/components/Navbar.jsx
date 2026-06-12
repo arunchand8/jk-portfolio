@@ -6,6 +6,7 @@ const navLinks = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Projects", to: "/projects" },
+  { label: "Skills", to: "/skills" },
 ];
 
 export default function Navbar() {
@@ -13,24 +14,24 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-dark border-b border-white/20 backdrop-blur-sm">
-      <nav className="max-w-6xl mx-auto flex justify-between items-center px-6 md:px-10">
-        <div className="flex items-center gap-10">
+      <nav className="w-full flex justify-between items-center px-5 sm:px-8 lg:px-14 xl:px-20 py-3">
+        <div className="flex items-center gap-7 lg:gap-10">
           <NavLink to="/" className="flex items-center">
             <img
               src={jkLogo}
               alt="Jayakrishna Logo"
-              className="h-16 md:h-20 w-auto"
+              className="h-14 md:h-16 w-auto"
             />
           </NavLink>
 
-          <ul className="hidden md:flex gap-8 list-none">
+          <ul className="hidden md:flex items-center gap-7 lg:gap-9 list-none m-0 p-0">
             {navLinks.map(({ label, to }) => (
               <li key={label}>
                 <NavLink
                   to={to}
                   className={({ isActive }) =>
                     `nav-link text-sm tracking-widest uppercase transition-colors duration-200 no-underline ${
-                      isActive ? "text-gold" : "text-white/50 hover:text-gold"
+                      isActive ? "text-rose" : "text-white/50 hover:text-rose"
                     }`
                   }
                 >
@@ -39,38 +40,34 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-        </div>
-
-        <div className="flex items-center gap-4">
           <a
             href="mailto:kovelakuntla333@gmail.com"
-            className="hidden md:inline-flex items-center justify-center gap-2 rounded-md bg-gold text-dark px-6 py-2 text-sm font-semibold tracking-wide no-underline hover:opacity-90 transition-opacity"
+            className="hidden md:inline-flex items-center justify-center gap-2 rounded-md bg-rose text-white min-w-32 px-7 py-3 text-sm font-nexa-light tracking-wide no-underline hover:opacity-90 transition-opacity lg:ml-1"
           >
             Contact
           </a>
-
-          <button
-            className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5 focus:outline-none"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                isOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                isOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                isOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            />
-          </button>
         </div>
+        <button
+          className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5 focus:outline-none"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
+          <span
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
+              isOpen ? "rotate-45 translate-y-2" : ""
+            }`}
+          />
+          <span
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
+              isOpen ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
+              isOpen ? "-rotate-45 -translate-y-2" : ""
+            }`}
+          />
+        </button>
       </nav>
 
       {isOpen && (
@@ -82,8 +79,8 @@ export default function Navbar() {
                   to={to}
                   onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
-                    `block text-sm tracking-widest uppercase transition-colors duration-200 no-underline ${
-                      isActive ? "text-gold" : "text-white/50 hover:text-gold"
+                    `block text-sm tracking-widest uppercase transition-colors duration-200 no-underline  ${
+                      isActive ? "text-rose" : "text-white hover:text-rose"
                     }`
                   }
                 >
@@ -95,7 +92,7 @@ export default function Navbar() {
               <a
                 href="mailto:kovelakuntla333@gmail.com"
                 onClick={() => setIsOpen(false)}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-gold text-dark px-6 py-3 text-sm font-semibold tracking-wide no-underline hover:opacity-90 transition-opacity"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-white opacity-80 text-rose px-6 py-3 text-sm font-nexa-light tracking-wide no-underline"
               >
                 Contact
               </a>

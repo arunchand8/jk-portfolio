@@ -1,51 +1,113 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import jkLogo from "../assets/jk_logo.png";
 
 const navLinks = [
-  { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
-  { label: "Projects", to: "/projects" },
-  { label: "Skills", to: "/skills" },
+  { label: "Home", id: "home" },
+  { label: "About", id: "about" },
+  { label: "Projects", id: "projects" },
+  { label: "Skills", id: "skills" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleScroll = (e, id) => {
+    if (e) e.preventDefault();
+    setIsOpen(false);
+
+    const doScroll = () => {
+      setActiveSection(id);
+      if (id === "home") {
+        navigate("/", { replace: true });
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
+      const targetUrl = `/#${id}`;
+      navigate(targetUrl, { replace: true });
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      else window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    if (location.pathname !== "/") {
+      navigate("/", { replace: true });
+      setTimeout(doScroll, 180);
+    } else {
+      doScroll();
+    }
+  };
+
+  const isActive = (id) => activeSection === id;
+
+  useEffect(() => {
+    const sectionIds = ["home", "about", "projects", "skills"];
+    const observers = [];
+
+    sectionIds.forEach((id) => {
+      const section = document.getElementById(id);
+      if (!section) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(id);
+          }
+        },
+        { threshold: 0.45 },
+      );
+      observer.observe(section);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((observer) => observer.disconnect());
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-dark border-b border-white/20 backdrop-blur-sm">
       <nav className="w-full flex justify-between items-center px-5 sm:px-8 lg:px-14 xl:px-20 py-3">
         <div className="flex items-center gap-7 lg:gap-10">
-          <NavLink to="/" className="flex items-center">
+          <a
+            href="/"
+            className="flex items-center"
+            onClick={(e) => {
+              e.preventDefault();
+              if (location.pathname !== "/") {
+                navigate("/");
+                setTimeout(
+                  () => window.scrollTo({ top: 0, behavior: "smooth" }),
+                  120,
+                );
+              } else {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+          >
             <img
               src={jkLogo}
               alt="Jayakrishna Logo"
               className="h-14 md:h-16 w-auto"
             />
-          </NavLink>
-
+          </a>
           <ul className="hidden md:flex items-center gap-7 lg:gap-9 list-none m-0 p-0">
-            {navLinks.map(({ label, to }) => (
+            {navLinks.map(({ label, id }) => (
               <li key={label}>
-                <NavLink
-                  to={to}
-                  className={({ isActive }) =>
-                    `nav-link text-sm tracking-widest uppercase transition-colors duration-200 no-underline ${
-                      isActive ? "text-rose" : "text-white/50 hover:text-rose"
-                    }`
-                  }
+                <a
+                  href={id === "home" ? "/" : `/#${id}`}
+                  onClick={(e) => handleScroll(e, id)}
+                  className={`nav-link text-sm tracking-widest transition-colors duration-200 no-underline ${
+                    isActive(id) ? "text-rose" : "text-white/50 hover:text-rose"
+                  }`}
                 >
                   {label}
-                </NavLink>
+                </a>
               </li>
             ))}
           </ul>
-          <a
-            href="mailto:kovelakuntla333@gmail.com"
-            className="hidden md:inline-flex items-center justify-center gap-2 rounded-md bg-rose text-white min-w-32 px-7 py-3 text-sm font-nexa-light tracking-wide no-underline hover:opacity-90 transition-opacity lg:ml-1"
-          >
-            Contact
-          </a>
         </div>
         <button
           className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5 focus:outline-none"
@@ -73,30 +135,19 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden border-t border-white/10 bg-dark">
           <ul className="flex flex-col list-none px-6 py-4 gap-4">
-            {navLinks.map(({ label, to }) => (
+            {navLinks.map(({ label, id }) => (
               <li key={label}>
-                <NavLink
-                  to={to}
-                  onClick={() => setIsOpen(false)}
-                  className={({ isActive }) =>
-                    `block text-sm tracking-widest uppercase transition-colors duration-200 no-underline  ${
-                      isActive ? "text-rose" : "text-white hover:text-rose"
-                    }`
-                  }
+                <a
+                  href={id === "home" ? "/" : `/#${id}`}
+                  onClick={(e) => handleScroll(e, id)}
+                  className={`block text-sm tracking-widest transition-colors duration-200 no-underline  ${
+                    isActive(id) ? "text-rose" : "text-white hover:text-rose"
+                  }`}
                 >
                   {label}
-                </NavLink>
+                </a>
               </li>
             ))}
-            <li>
-              <a
-                href="mailto:kovelakuntla333@gmail.com"
-                onClick={() => setIsOpen(false)}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-white opacity-80 text-rose px-6 py-3 text-sm font-nexa-light tracking-wide no-underline"
-              >
-                Contact
-              </a>
-            </li>
           </ul>
         </div>
       )}

@@ -83,10 +83,6 @@
   font-weight: 700;
 }
 
-.font-bebas {
-  font-family: 'Bebas Neue', sans-serif;
-}
-
 @keyframes heroFadeUp {
   from {
     opacity: 0;
@@ -101,32 +97,21 @@
   }
 }
 
-.hero-fade-up,
-.hero-button {
+.hero-fade-up {
   opacity: 0;
-  animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: translateY(24px);
+  filter: blur(10px);
+  animation: heroFadeUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-fill-mode: both;
+  will-change: opacity, transform, filter;
 }
 
 .hero-fade-up-delay {
   animation-delay: 0.18s;
 }
 
-.hero-button:nth-child(1) {
-  animation-delay: 0.42s;
-}
-
-.hero-button:nth-child(2) {
-  animation-delay: 0.56s;
-}
-
-.hero-button:nth-child(3) {
-  animation-delay: 0.7s;
-}
-
 @media (prefers-reduced-motion: reduce) {
-
-  .hero-fade-up,
-  .hero-button {
+  .hero-fade-up {
     opacity: 1;
     animation: none;
     transform: none;
@@ -141,17 +126,17 @@
   }
 
   to {
-    opacity: 1;
+    opacity: 2;
     transform: scale(1);
   }
 }
 
 .anim-icon {
   opacity: 0;
-  animation: fadeInScale 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .anim-text {
   opacity: 0;
-  animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInScale 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

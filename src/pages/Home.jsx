@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import Hero from "../components/Hero";
 import ProjectCard from "../components/ProjectCard";
 import SectionHeader from "../components/SectionHeader";
@@ -15,28 +14,28 @@ const featuredProjects = [
     imgSrc: img1,
     tag: "Environment Design",
     title: "Neon District - Environment",
-    desc: "Atmospheric environment build with volumetric lightingand mood composition.",
+    desc: "Atmospheric environment build with volumetric lighting and mood composition.",
   },
   {
     type: "screenshot",
     imgSrc: img2,
     tag: "Environment Design",
     title: "Neon District - Environment",
-    desc: "Atmospheric environment build with volumetric lightingand mood composition.",
+    desc: "Atmospheric environment build with volumetric lighting and mood composition.",
   },
   {
     type: "screenshot",
     imgSrc: img3,
     tag: "Environment Design",
     title: "Neon District - Environment",
-    desc: "Atmospheric environment build with volumetric lightingand mood composition.",
+    desc: "Atmospheric environment build with volumetric lighting and mood composition.",
   },
   {
     type: "screenshot",
     imgSrc: img4,
     tag: "Environment Design",
     title: "Neon District - Environment",
-    desc: "Atmospheric environment build with volumetric lightingand mood composition.",
+    desc: "Atmospheric environment build with volumetric lighting and mood composition.",
   },
 ];
 
@@ -46,7 +45,9 @@ export default function Home() {
       <Hero />
       <section
         id="about"
-        className="relative min-h-screen flex items-center overflow-hidden mb-6 md:mb-13"
+        // className="relative min-h-screen flex items-center overflow-hidden mb-6 md:mb-12"
+        // className="relative overflow-hidden py-14 md:min-h-screen md:flex md:items-center mb-6 md:mb-12"
+        className="scroll-mt-20 relative overflow-hidden py-14 md:min-h-screen md:flex md:items-center mb-6 md:mb-12"
       >
         {/* Background Image — right side lo — desktop only */}
         <div
@@ -59,11 +60,12 @@ export default function Home() {
         />
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-linear-to-r from-dark via-dark/30 to-dark/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/30 to-dark/30" />
 
         {/* Content */}
-        <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-10 py-24 w-full">
-          <div className="max-w-2xl flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-0">
+        {/* <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-10 md:py-12 w-full"> */}
+        <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-10 w-full">
+          <div className="max-w-2xl flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-0">
             <div className="flex-1">
               <SectionHeader title="About Me" />
 
@@ -95,8 +97,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section id="projects" className="mb-6 md:mb-13">
-        <div className="max-w-6xl mx-auto px-6 md:px-10 py-20 md:py-20">
+      {/* <section id="projects" className="mb-6 md:mb-12"> */}
+        <section id="projects" className="scroll-mt-20 mb-6 md:mb-12">
+        <div className="max-w-6xl mx-auto px-6 md:px-10 py-14 md:py-16">
           <div className="mb-6">
             <SectionHeader title="Projects" />
           </div>
@@ -107,14 +110,6 @@ export default function Home() {
               </li>
             ))}
           </ul>
-          <div className="mt-16 flex justify-end">
-            <NavLink
-              to="/#projects"
-              className="font-nexa-light inline-flex items-center justify-center rounded-md text-white border border-rose px-6 py-3 text-sm font-semibold tracking-wide no-underline hover:bg-transparent hover:text-rose hover:border-white transition-all duration-200"
-            >
-              Show More
-            </NavLink>
-          </div>
         </div>
       </section>
       <Skills />

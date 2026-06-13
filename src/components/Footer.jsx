@@ -24,8 +24,8 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="border-t border-white/10 mt-6">
-      <section className="mb-6 max-w-6xl mx-auto px-6 md:px-10 py-20 text-center">
-        <h2 className="font-nexa-bold text-4xl text-rose tracking-wide mb-4">
+      <section className="mb-6 max-w-6xl mx-auto px-6 md:px-10 md:py-20 py-14 text-center">
+        <h2 className="font-nexa-bold text-3xl md:text-4xl text-rose tracking-wide mb-4">
           Connect
         </h2>
         <a

@@ -27,14 +27,15 @@ const getOrbitMetrics = () => {
     return { size: 600, radius: 260, iconSize: 64 };
   }
   const viewport = window.innerWidth;
-  const size = Math.min(600, Math.max(288, viewport - 32));
+  // const size = Math.min(600, Math.max(288, viewport - 32));
+  const size = Math.min(520, Math.max(280, viewport - 48));
   const radiusRatio =
     viewport < 480
       ? 0.42
       : viewport < 768
         ? 0.35
         : viewport < 1024
-          ? 0.28
+          ? 0.24
           : 0.40;
   const iconSize = viewport < 380 ? 44 : viewport < 640 ? 52 : 64;
   return {
@@ -129,7 +130,8 @@ export default function Skills() {
     <main
       id="skills"
       ref={sectionRef}
-      className="mb-6 md:mb-13 min-h-screen overflow-x-hidden bg-dark flex flex-col items-center justify-start px-6 md:px-10 lg:px-14 py-14 sm:py-16 lg:py-20 gap-16 lg:gap-20"
+      // className="mb-6 md:mb-12 min-h-screen overflow-x-hidden bg-dark flex flex-col items-center justify-start px-6 md:px-10 lg:px-14 py-14 sm:py-16 lg:py-20 gap-16 lg:gap-20"
+      className="scroll-mt-20 mb-6 md:mb-12 overflow-x-hidden bg-dark flex flex-col items-center justify-start px-6 md:px-10 lg:px-14 py-14 sm:py-16 lg:py-20 gap-16 lg:gap-20"
     >
       {/* Orbital Section */}
       <div
@@ -150,7 +152,7 @@ export default function Skills() {
           <h2 className="font-montserrat-bold text-2xl min-[380px]:text-3xl sm:text-4xl md:text-4xl text-white uppercase">
             Workflow
           </h2>
-          <h5 className="font-montserrat-thin text-xs text-rose mt-2 max-w-\[120px\] sm:max-w-\[150px\] mx-auto leading-snug">
+          <h5 className="font-montserrat-thin text-xs text-rose mt-2 max-w-30 sm:max-w-37.5 mx-auto leading-snug">
             Tools I used to bring ideas to life
           </h5>
         </div>
@@ -195,7 +197,7 @@ export default function Skills() {
         className="w-full max-w-6xl border border-white/20 rounded-xl px-5 sm:px-6 py-6 sm:py-7 mt-8 md:-mt-12 lg:mt-0 flex flex-col lg:flex-row items-center justify-center lg:items-center gap-7 lg:gap-12"
       >
         {/* <p className="font-montserrat-medium text-sm text-rose max-w-\[260px\] lg:max-w-42 text-center lg:text-center shrink-0 leading-relaxed"> */}
-          <p className="font-montserrat-medium text-sm text-rose max-w-[170px] text-center shrink-0 leading-relaxed">
+          <p className="font-montserrat-medium text-sm text-rose max-w-42.5 text-center shrink-0 leading-relaxed">
           Every project is unique.
           I use the right tools at the right time.
         </p>
@@ -241,7 +243,7 @@ export default function Skills() {
               >
                 <img
                   src={arrow}
-                  alt="Arroe-image"
+                  alt="Arrow"
                   className="w-6 h-3 sm:w-8 sm:h-3"
                 />
               </span>

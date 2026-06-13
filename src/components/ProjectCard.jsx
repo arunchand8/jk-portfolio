@@ -18,7 +18,8 @@ export default function ProjectCard({
           />
         </div>
       ) : imgSrc ? (
-        <figure className="h-48 overflow-hidden flex-shrink-0">
+        // <figure className="h-48 overflow-hidden flex-shrink-0">
+        <figure className="aspect-video overflow-hidden flex-shrink-0">
           <img
             src={imgSrc}
             alt={title}
@@ -50,10 +51,10 @@ export default function ProjectCard({
         <p className="text-[0.65rem] uppercase tracking-[0.12em] text-rose mb-1">
           {tag}
         </p>
-        <h3 className="font-bebas text-xl text-white tracking-wide mb-1">
+        <h3 className="font-montserrat-medium text-xl text-white tracking-wide mb-1">
           {title}
         </h3>
-        <p className="text-xs text-white/40 leading-relaxed font-dm">{desc}</p>
+        <p className="text-xs text-white/40 leading-relaxed font-montserrat-light">{desc}</p>
       </div>
     </article>
   );

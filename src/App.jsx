@@ -29,7 +29,7 @@ function ScrollToHash() {
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="bg-dark min-h-screen text-white font-dm">
+      <div className="bg-dark min-h-screen text-white font-montserrat-light">
         <Navbar />
         <ScrollToHash />
         <Routes>
